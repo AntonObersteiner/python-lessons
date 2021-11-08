@@ -1,14 +1,9 @@
-class Human():
-    def __init__(self, fistname, lastname, dob):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.dob = dob
+class Mensch():
+    def __init__(self, vorname, nachname):
+        self.vorname = vorname
+        self.nachname = nachname
 
-
-class Child(Human):
-    # Ein Child ist einfach nur ein Human mit den
-    # zusaetzlichen Attributen father und mother
-    def __init__(self, fistname, lastname, dob, father, mother):
-        super.__init__(fistname, lastname, dob)
-        self.father = father
-        self.mother = mother
+class Kind(Mensch):
+    def __init__(self, vorname, nachname, eltern):
+        super.__init__(vorname, nachname)
+        self.eltern = eltern
