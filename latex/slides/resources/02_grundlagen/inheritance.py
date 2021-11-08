@@ -5,5 +5,5 @@ class Mensch():
 
 class Kind(Mensch):
     def __init__(self, vorname, nachname, eltern):
-        super.__init__(vorname, nachname)
+        super(Kind, self).__init__(vorname, nachname)
         self.eltern = eltern
