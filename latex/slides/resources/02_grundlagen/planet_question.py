@@ -1,8 +1,10 @@
+dt = .1
 class Planet(...):
     """
     Planet(mass, Vector(x, y)) -> a mass at a position
         vel: velocity (initially (0, 0))
-    planet.accel(dt, acc) -> accelerate (dt: timestep)
+    planet.update() -> move self by vel * dt
+    planet.accel(acc) -> accelerate vel by acc * dt
     planet.attract(other) -> accelerate planet towards other
     some random bits of physics:
         vel += acc * dt
@@ -14,5 +16,6 @@ class Planet(...):
     def __init__(self, mass, pos):
         super(Planet, self).__init__(pos.x, pos.y)
         ...
+    def update(self): ...
     def accel(self, acc): ...
     def attract(self, other): ...

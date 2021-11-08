@@ -1,12 +1,9 @@
-    def attract(self, dt, other):
-        diff = Vector(
-            other.x - self.x,
-            other.y - self.y
-        )
+    def attract(self, other):
+        diff = self - other #__sub__
         dist = diff.abs()
 
         if dist > 0:
             force = self.mass * other.mass / dist ** 2
-            factor = force / self.mass / diff.abs()
-            directed_force = diff.mul(factor)
-            self.accel(dt, directed_force)
+            factor = force / self.mass / dist
+            directed_force = diff * factor #__mul__
+            self.accel(directed_force)

@@ -15,4 +15,4 @@ class Vector:
     def mul(self, factor):
         return Vector(self.x * factor, self.y * factor)
     def abs(self):
-        return (self.x ** 2 + self.x ** 2) ** .5
+        return (self.x ** 2 + self.y ** 2) ** .5

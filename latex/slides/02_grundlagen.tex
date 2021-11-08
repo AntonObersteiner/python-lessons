@@ -68,8 +68,17 @@
 \begin{frame}{\tt global}
 	\lstinputlisting{resources/02_grundlagen/scope_fix.py}
     Das ist meist Gaffa, keine dauerhafte Lösung! \\
-    Variablen als Argumente übergeben und sinnvoll strukturieren \\
-    $\Rightarrow$ Objekte
+    $\Rightarrow$ Variablen als Argumente übergeben
+\end{frame}
+\begin{frame}{Parameter?}
+	\lstinputlisting{resources/02_grundlagen/scope_parameter.py}
+    \glqq passing by value\grqq{} statt \glqq by reference\grqq{} :( \\
+    zurückgeben $\Rightarrow$ Funktionaler Ansatz
+\end{frame}
+\begin{frame}{Funktionaler Ansatz}
+	\lstinputlisting{resources/02_grundlagen/scope_functional.py}
+    Alles übergeben und zurückgeben... Anstrengend \\
+    sinnvoll strukturieren $\Rightarrow$ Objekte
 \end{frame}
 
 \section{Objekte}
@@ -99,7 +108,7 @@
 	\begin{itemize}
 		\item Funktionen, die Teil von Klassen/Objekten sind
 		\item<2-> erstes Argument \texttt{self} wird übergeben
-        \item<3-> \texttt{    def method(obj, arg2): ...}
+        \item<3-> \texttt{    def method(self, arg2): ...}
         \item<3-> \texttt{obj.method(arg2)}
 	\end{itemize}
 \end{frame}
@@ -107,10 +116,13 @@
 \subsubsection{Übung: Vektor}
 \begin{frame}{Übung: Vektor-Klasse}
     \lstinputlisting{resources/02_grundlagen/vector_question.py}
-    \end{frame}
+\end{frame}
 \begin{frame}{Übung: Vektor-Klasse}
     \lstinputlisting{resources/02_grundlagen/vector.py}
-    \end{frame}
+\end{frame}
+\begin{frame}{Beispiel: Mein Vektor}
+    \lstinputlisting{resources/02_grundlagen/Vector_short.py}
+\end{frame}
 
 \subsection{Super- und Subklassen}
 \begin{frame}{Super- und Subklassen}
@@ -127,9 +139,11 @@
 \end{frame}
 \begin{frame}{Übung: Planet-Klasse}
     \lstinputlisting{resources/02_grundlagen/planet.py}
+    Richtige Implementierung im Ordner \texttt{ressourcen/planets/}
 \end{frame}
 \begin{frame}{Übung: Planet-Klasse (Fortsetzung)}
     \lstinputlisting{resources/02_grundlagen/planet_2.py}
+    Richtige Implementierung im Ordner \texttt{ressourcen/planets/}
 \end{frame}
 
 \subsection{Spezielle Methoden}
@@ -143,9 +157,6 @@
         \item<4->[\tt\_\_add\_\_] Funktion für \alert{\tt +}-Operator
         \item<5->[\tt\_\_iadd\_\_] Funktion für \alert{\tt +=}-Operator (muss self zurückgeben)
 	\end{description}
-\end{frame}
-\begin{frame}{Beispiel: Mein Vektor}
-    \lstinputlisting{resources/02_grundlagen/Vector.py}
 \end{frame}
 
 
