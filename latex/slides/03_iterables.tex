@@ -1,0 +1,210 @@
+% The Slide Definitions
+\input{../templates/course_definitions}
+
+% Author and Course information
+\input{../templates/course_information}
+\usepackage{tikz}
+
+% Presentation title
+\title{Iterierbare Datenstrukturen}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Gliederung}
+	\setbeamertemplate{section in toc}[sections numbered]
+	\tableofcontents
+\end{frame}
+
+
+% #############################################################################
+% -------------------- Wiederholung/Abschluss Objekte -------------------------
+% #############################################################################
+\section{Wiederholung/Abschluss Objekte}
+
+\begin{frame}{Objekte und Vererbung}
+	\begin{itemize}
+		\item Was sind Klassen, was Objekte, was ist Vererbung?
+		\item<2-> Was braucht unser Planet noch? {\tt class Planet(Vector):}
+	\end{itemize}
+	\begin{tikzpicture}
+		\onslide<2->{
+			\node         (origin)  at (0,   0) {$O$};
+			\node         (planet)  at (5,   2) {};
+			\node[above]  (Planet)  at (5,   2) {\tt planet};
+			\draw[-latex] (origin) -> (planet);
+		}
+		\onslide<3->{
+			\node         (heading) at (6.5, 1) {};
+			\node[right]  (Heading) at (6.5, 1) {\tt vel};
+			\node[above]  (mass)    at (5,   3) {\tt mass};
+
+			\draw[-latex] (planet) -> (heading);
+			\draw (planet) circle[radius=1];
+		}
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Planeten-Eigenschaften}
+	\lstinputlisting{resources/02_grundlagen/planet_question.py}
+	\url{github.com/AntonObersteiner/python-lessons/tree/master/latex/slides/resources/02_grundlagen/planet_question.py}
+\end{frame}
+\begin{frame}{Planeten-Eigenschaften}
+	\begin{tikzpicture}
+		\node         (origin)   at (0,   0) {$O$};
+		\node         (planet1)  at (5,   2) {};
+		\node[right]  (Planet1)  at (5,   2) {\tt self};
+		\node         (heading1) at (3.5, 3) {};
+		\node[above]  (Heading1) at (3.5, 3) {\tt self.vel};
+		\node[below]  (mass1)    at (5,   1) {\tt self.mass};
+
+		\node         (planet2)  at (-2,  1) {};
+		\node[left]   (Planet2)  at (-2.7,1) {\tt other};
+		\node         (heading2) at (-2,2.5) {};
+		\node[left]   (Heading2) at (-2,2.5) {\tt other.vel};
+		\node[below]  (mass2)    at (-2, .3) {\tt other.mass};
+
+		\node         (force1)   at ({5 - .35 * 7},   {2 - .35 * 1}) {};
+		\node  (headingforce1)   at ({3.5-.35 * 3.5}, {3 - .35 *.5}) {};
+
+		\draw[-latex] (origin) -> (planet1);
+		\draw[-latex] (origin) -> (planet2);
+		\draw[-latex] (planet1) -> (heading1);
+		\draw[-latex] (planet2) -> (heading2);
+		\draw (planet1) circle[radius=1];
+		\draw (planet2) circle[radius=.7];
+		\onslide<5-> \draw[-latex, red] (planet1) -> node[sloped, above] {\tt diff} (planet2);
+		\onslide<7-8> \draw[blue] (0, 2.5) -- node[sloped, above] {\tt F\_abs} (2.5, 2.5);
+		\onslide<8-> \draw[-latex,blue] (planet1) -> node[sloped, above] {\tt force} (force1);
+		\onslide<10-> \draw[-latex,blue] (heading1) -> node[sloped, below] {$\mathrm{d}v$} (headingforce1);
+	\end{tikzpicture}
+	$$\begin{aligned}
+		\dot s &= v && \onslide<2->{\text{{\tt self += vel * dt}\phantom M \alert{Planet(Vector)}}} \\
+		\dot v &= a && \onslide<3->{\text{\tt vel  += acc * dt}} \\
+		F &= m\cdot a && \onslide<4->{\text{\tt acc = force / mass}} \\
+		d &= s_2 - s_1 && \onslide<5->{\text{\tt diff = other - self}} \\ % \phantom M \color{blue} (Vector.\_\_sub\_\_(...))} \\
+		|F_G| &= \onslide<6->{
+			G\cdot\frac{m_1 \cdot m_2}{|d|^2}
+		} && \onslide<7->{
+			\text{\tt F\_abs = G * \textcolor{blue}{s}.mass * \textcolor{blue}{o}.mass / dist ** 2}
+		} \\
+		F_G &= \onslide<8->{
+			\frac{d}{|d|} \cdot |F_G|
+		} && \onslide<9->{
+			\text{\tt force = diff * (F\_abs / diff.abs())}
+		} \\
+	\end{aligned}$$
+\end{frame}
+
+% #############################################################################
+% ----------------------------------- Listen ----------------------------------
+% #############################################################################
+\section{Listen}
+
+\begin{frame}{list - und Schleifen}
+	\lstinputlisting{resources/03_iterables/list_short.py}
+	\begin{itemize}
+		\item enthält variable Anzahl von Objekten mit fester Reihenfolge
+		\item kann verschiedene Datentypen enthalten
+		\item Auch Listen können in Listen gespeichert werden!
+		\item Speicherverständnis!
+	\end{itemize}
+	\onslide<2->\lstinputlisting{resources/03_iterables/list_copy.py}
+\end{frame}
+\begin{frame}{list - Unpacking-Beispiel}
+	\lstinputlisting{resources/03_iterables/list_unpacking.py}
+	\begin{itemize}
+		\item {\tt tuple} enthalten mehrere Elemente,
+		\item sind aber unveränderbar $\to$ Vor- und Nachteile
+	\end{itemize}
+	\onslide<2->\lstinputlisting{resources/03_iterables/tuple_return.py}
+\end{frame}
+\begin{frame}{list - Anhängen und map}
+	\onslide<1->\lstinputlisting{resources/03_iterables/list.py}
+	\onslide<2->\lstinputlisting{resources/03_iterables/list_roots.py}
+\end{frame}
+\begin{frame}{list - filter}
+	Primzahlen mit {\tt filter(func: data -> bool, data)} finden
+	\onslide<2->\lstinputlisting{resources/03_iterables/list_filter.py}
+\end{frame}
+
+
+% #############################################################################
+% --------------------------------- Dict, Set ---------------------------------
+% #############################################################################
+\section{Dict, Set}
+
+\begin{frame}{dict}
+	Zuordnung: $key \to value$
+	\lstinputlisting[lastline=11]{resources/03_iterables/dict.py}
+\end{frame}
+
+
+\begin{frame}{Es gibt Mengen in Python}
+	\begin{itemize}
+		\item kann nur hashbare Einträge enthalten
+		\item {\tt students = \{ "{}Elia", "Muzaina", ... \}}
+		\item Fun fact: Python kann Unicode, aber mein \LaTeX{} nicht
+	\end{itemize}
+\end{frame}
+
+% #############################################################################
+% --------------------------------- Iterations --------------------------------
+% #############################################################################
+\section{Iterations}
+
+\begin{frame}{Iteration}
+	\begin{itemize}
+		\item {\tt for $a$ in $A$: $do$}
+		\item $a$ wird hier $A$ einmal durchlaufen,
+		\item für jedes $a$ wird der block $do$ ausgeführt
+		\item für Iterationen über Integer: \texttt{range([start], stop, step=1)}
+		\item \alert{\texttt{\_\_iter\_\_}} Methode wird intern aufgerufen
+		\item<2-> Gegensatz: {\tt while} mit Bedingung
+	\end{itemize}
+\end{frame}
+
+
+% #############################################################################
+% ------------------------------- File Handling -------------------------------
+% #############################################################################
+\section{File Handling}
+
+\begin{frame}{File Handling}
+	\begin{itemize}
+		\item Dateien können mit \alert{\texttt{open(filename, mode="r")}} geöffnet werden
+		\item \textit{File Handler} sind Iteratoren über die Zeilen einer Datei
+		\item \textbf{Wichtig:} File Handler müssen auch wieder geschlossen werden
+		\item \texttt{r} steht für Lesezugriff,  \texttt{w} für Schreibzugriff
+	\end{itemize}
+	\textbf{Beachte:} Wird eine Datei mit Schreibzugriff geöffnet, wird sie geleert! Also wichtige Inhalte vorher auslesen.
+\end{frame}
+
+\begin{frame}{File Handling - Beispiel}
+	\lstinputlisting{resources/03_iterables/file.py}
+\end{frame}
+
+
+% #############################################################################
+% ------------------------------- Import --------------------------------------
+% #############################################################################
+\section{Import}
+
+\begin{frame}{Import}
+	\begin{itemize}
+		\item<1-> Funktionen, Klassen, ... aus Bibliotheken importieren
+		\item<1-> {\tt import turtle} $\to$ {\tt turtle.goto(100, 100)}
+		\item<2-> {\tt from math import sin} $\to$ {\tt sin(angle)}
+		\item<3-> {\tt from math import *} $\to$ {\tt sin, cos, pi, exp, ...}
+		\item<4-> {\tt from matplotlib import pyplot as plt}
+		\item[]<5-> $\to$ {\tt plt.plot(X, Y); plt.show()}
+		\item<6-> {\tt from Planet import Planet}
+		\item[]<7-> $\to$ import {\tt Planet} from file {\tt Planet.py}
+	\end{itemize}
+\end{frame}
+
+
+\end{document}
