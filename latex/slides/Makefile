@@ -1,4 +1,4 @@
-FILES=01_getting_started 02_grundlagen 03_builtins 04_modules_packages_pip 05_decorators 06_comprehensions 07_functions_advanced 08_process 09_web_client 10_regex 11_smtplib 12_curses
+FILES=01_getting_started 02_grundlagen 03_iterables 04_modules_packages_pip 05_decorators 06_comprehensions 07_functions_advanced 08_process 09_web_client 10_regex 11_smtplib 12_curses
 
 # atom regex replacer
 # $1: $1.tex\n	pdflatex -jobname=build/$1 $1.tex
@@ -7,8 +7,8 @@ FILES=01_getting_started 02_grundlagen 03_builtins 04_modules_packages_pip 05_de
 	pdflatex -jobname=build/01_getting_started 01_getting_started.tex
 02_grundlagen: 02_grundlagen.tex
 	pdflatex -jobname=build/02_grundlagen 02_grundlagen.tex
-03_builtins: 03_builtins.tex
-	pdflatex -jobname=build/03_builtins 03_builtins.tex
+03_iterables: 03_iterables.tex
+	pdflatex -jobname=build/03_iterables 03_iterables.tex
 04_modules_packages_pip: 04_modules_packages_pip.tex
 	pdflatex -jobname=build/04_modules_packages_pip 04_modules_packages_pip.tex
 05_decorators: 05_decorators.tex
