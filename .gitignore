@@ -22,3 +22,5 @@ _site/
 .sass-cache/
 html/
 .jekyll-metadata
+
+*.pyc
