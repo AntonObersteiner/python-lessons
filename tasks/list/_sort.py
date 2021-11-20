@@ -30,3 +30,24 @@ def sort(List):
         #   I write them as separate because I hope, it's easier to understand
 
     return List
+
+def quicksort(List):
+    if len(List) <= 1:
+        return List
+
+    #choosing any element and separating all elements
+    #   as above or below or equal to that
+    sep = List[0]
+
+    smaller = []
+    equal = []
+    greater = []
+    for i in range(len(List)):
+        if List[i] < sep:
+            smaller += [List[i]]
+        elif List[i] > sep:
+            greater += [List[i]]
+        else:
+            equal += [List[i]]
+
+    return quicksort(smaller) + equal + quicksort(greater)
