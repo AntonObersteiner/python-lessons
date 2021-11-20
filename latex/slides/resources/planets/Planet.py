@@ -27,15 +27,15 @@ class Planet(Vector):
         turtle.pd() #pen down
         turtle.goto(self)
 
-    def accel(self, acc, dt = .1):
-        self.vel += acc * dt
+    def accel(self, force, dt = .1):
+        self.vel += force * (dt / self.mass)
     def attract(self, other, dt = .1, g = 100):
         diff = other - self
         dist = abs(diff)
 
         if dist > 0:
             force = g * self.mass * other.mass / dist ** 2
-            factor = force / self.mass / dist
+            factor = force / dist
             directed_force = diff * factor
             self.accel(dt, directed_force)
 
