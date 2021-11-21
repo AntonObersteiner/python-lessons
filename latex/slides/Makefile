@@ -1,4 +1,4 @@
-FILES=01_getting_started 02_grundlagen 03_iterables 04_modules_packages_pip 05_decorators 06_comprehensions 07_functions_advanced 08_process 09_web_client 10_regex 11_smtplib 12_curses
+FILES=01_getting_started 02_grundlagen 03_iterables 04_modules_packages_pip 05_decorators 06_comprehensions 07_functions_advanced 08_process 09_web_client 10_regex 11_smtplib 12_curses glossar
 
 # atom regex replacer
 # $1: $1.tex\n	pdflatex -jobname=build/$1 $1.tex
@@ -27,6 +27,8 @@ FILES=01_getting_started 02_grundlagen 03_iterables 04_modules_packages_pip 05_d
 	pdflatex -jobname=build/11_smtplib 11_smtplib.tex
 12_curses: 12_curses.tex
 	pdflatex -jobname=build/12_curses 12_curses.tex
+glossar: glossar.tex
+	pdflatex -jobname=build/glossar glossar.tex
 
 all: $(FILES)
 default: all

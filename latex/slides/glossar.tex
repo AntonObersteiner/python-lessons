@@ -1,0 +1,217 @@
+% The Slide Definitions
+\input{../templates/course_definitions}
+
+% Author and Course information
+\input{../templates/course_information}
+
+% Presentation title
+\title{Glossar}
+\date{\today}
+\setlength{\columnsep}{.4cm}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Gliederung}
+	\begin{multicols}{2}
+		\setbeamertemplate{section in toc}[sections numbered]
+		\tableofcontents
+	\end{multicols}
+\end{frame}
+
+
+\section{Basic}
+
+\subsection{Variablen}
+\begin{frame}{Variable}
+	\lstinputlisting{resources/glossar/variables.py}
+	\begin{itemize}
+		\item Speichern Werte, bis sie neu gesetzt werden
+		\item Variablen in einer Funktion sind nicht außerhalb sichtbar
+	\end{itemize}
+\end{frame}
+
+\subsection{if-elif-else}
+\begin{frame}{if-elif-else}
+	\lstinputlisting{resources/glossar/if_elif_else.py}
+	\begin{itemize}
+		\item \texttt{if}-Bedingung wird zuerst geprüft
+		\item Wenn die nicht gilt (\texttt{True} ist), wird das erste \texttt{elif} überprüft
+		\item Wenn keine \texttt{if}- oder \texttt{elif}-Bedingung gilt, kann \texttt{else} ausgeführt werden
+		\item \texttt{elif} und \texttt{else} muss es nicht geben
+	\end{itemize}
+\end{frame}
+
+\subsection{\texttt{print} und \texttt{input}}
+\begin{frame}{print und input}
+	\lstinputlisting{resources/glossar/print_input.py}
+	\begin{itemize}
+		\item \texttt{print} gibt alle Argumente aus
+		\item \texttt{input} gibt seinen prompt aus und wartet auf Nutzerinput
+		\item Vorsicht: \texttt{input} gibt immer einen String zurück
+	\end{itemize}
+\end{frame}
+
+\subsection{Funktionen}
+\begin{frame}{Funktionen}
+	\lstinputlisting{resources/glossar/function.py}
+	\begin{itemize}
+		\item mit \texttt{funktion(argumente)} aufrufen
+		\item \texttt{return}-Wert kann weiter verwendet werden
+		\item alles andere, was die Funktion macht, sind Seiteneffekte
+	\end{itemize}
+\end{frame}
+
+\subsection{Datentypen}
+\begin{frame}{Datentypen}
+	\begin{description}
+		\item[int] Ganzzahl: \texttt{5, -128, int(17.5) == 17}
+		\item[float] Kommazahl: \texttt{12.7, -0.001}
+		\item[str] Zeichenkette: \texttt{"Text mit 123", "q", str(5) == "5"}
+		\item[bool] Ja-Nein-Wert: \texttt{a == 5} $\to$ \texttt{True} oder \texttt{False}
+		\item[type] Datentyp: \texttt{type("q") == str}
+		\item[list] Liste mit irgendwelchen Elementen: \texttt{["Houlle", 1, 12]}
+		\item[dict] Zuordnung \texttt{key} $\to$ \texttt{element}: \texttt{\{1: "ja", 2:"nö"\}}
+	\end{description}
+	\lstinputlisting{resources/glossar/datatypes.py}
+\end{frame}
+
+\subsection{Operatoren}
+\begin{frame}{Operatoren}
+	\begin{description}
+		\item[\tt+] Addiert Zahlen, hängt anderes hintereinander
+		\item[\tt*] Multipliziert Zahlen, vervielfältigt anderes
+		\item[\tt-] Subtrahiert Zahlen
+		\item[\tt/] Teilt Zahlen
+		\item[\tt\%] Bildet den Rest $a \mod b$
+		\item[\tt**] Exponent: statt \^{}
+		\item[\tt==] Sind sie gleich? $\to$ bool als Ergebnis
+	\end{description}
+	\lstinputlisting{resources/glossar/operators.py}
+\end{frame}
+\begin{frame}{Operatoren}
+	\begin{description}
+		\item[\tt==] gleich?
+		\item[\tt!=] ungleich?
+		\item[\tt<, >] kleiner? größer?
+		\item[\tt<=, >=] kleiner gleich? größer gleich
+		\item[\tt and] gelten $a$ und $b$?
+		\item[\tt or] gelten $a$ und/oder $b$?
+	\end{description}
+	\lstinputlisting{resources/glossar/operators_bool.py}
+\end{frame}
+
+\subsection{Listen}
+\begin{frame}{Listen}
+	\begin{itemize}
+		\item Mehrere Werte mit Reihenfolge
+		\item Index \texttt{0, 1, 2, ..., len(liste) - 1}
+	\end{itemize}
+	\lstinputlisting{resources/glossar/list_squares.py}
+\end{frame}
+
+\subsection{\texttt{for}-Loop und \texttt{range}}
+\begin{frame}{\texttt{for}-Loop und \texttt{range}}
+	\begin{itemize}
+		\item Syntax: \texttt{for $a$ in $A$: $block$}
+		\item $a$ durchläuft alle Elemente von $A$ einmal
+		\item jedes mal wird $block$ (Eingerücktes darunter) ausgeführt
+		\item \texttt{range(start = 0, stop, step = 1)} ist wie eine Liste von \texttt{start} bis \texttt{stop}
+		\item Enden von Bereichen (hier: \texttt{stop}) werden nicht mit berechnet!
+		\item eins größer wählen als letztes Element
+	\end{itemize}
+	\lstinputlisting{resources/glossar/for_range.py}
+\end{frame}
+
+\subsection{\texttt{while}-Loop}
+\begin{frame}{\texttt{while}-Loop}
+	\begin{itemize}
+		\item Syntax: \texttt{while $b$: $block$}
+		\item prüft Bedingung $b$ immer wieder
+		\item führt jedes Mal, wenn $b$ gilt, $block$ aus
+	\end{itemize}
+	\lstinputlisting{resources/glossar/while.py}
+\end{frame}
+
+\subsection{\texttt{continue} und \texttt{break}}
+\begin{frame}{\texttt{continue} und \texttt{break}}
+	\begin{description}
+		\item[\texttt{continue}] Schleife ignoriert den Rest des Blocks
+		\item[]	und geht zum nächsten Durchlauf über
+		\item[\texttt{break}] Schleife bricht komplett ab
+	\end{description}
+\end{frame}
+
+\section{Intermediate}
+
+\subsection{Files}
+\begin{frame}{Files}
+	\lstinputlisting{resources/glossar/files.py}
+	\lstinputlisting{resources/glossar/files_with.py}
+\end{frame}
+
+\section{Advanced}
+\subsection{Fehler}
+\begin{frame}{Auftreten von Fehlern}
+	\begin{itemize}
+		\item Wann bemerkt man Fehler?
+		\item<2-> Syntax-Fehler am Anfang
+		\item<3-> Alle anderen bei der Ausführung!
+		\item<4-> Deswegen komplizierten Code Testen! (später)
+	\end{itemize}
+\end{frame}
+
+\section{Klassen}
+\subsection{Klassen, Objekte und Attribute}
+\begin{frame}{Klassen und Attribute}
+	\begin{itemize}
+		\item<1-> Klassen sind wie Schablonen
+		\item<2-> Objekte sind konkrete Instanzen
+	\end{itemize}
+	\onslide<3->\lstinputlisting{resources/02_grundlagen/class.py}
+	\onslide<3->{auf Deutsch: selbst festgelegt}
+\end{frame}
+
+\begin{frame}{Attribute}
+	Attribute setzen: meist im \textbf{Initialisierer} \alert{\tt \_\_init\_\_}
+	\lstinputlisting{resources/02_grundlagen/attributes.py}
+	auf Deutsch: selbst festgelegt
+\end{frame}
+
+\subsection{Methoden}
+\begin{frame}{Methoden}
+	\begin{itemize}
+		\item Funktionen, die Teil von Klassen/Objekten sind
+		\item<2-> erstes Argument \texttt{self} wird übergeben
+		\item<3-> \texttt{	def method(self, arg2): ...}
+		\item<3-> \texttt{obj.method(arg2)}
+	\end{itemize}
+\end{frame}
+
+\subsection{Super- und Subklassen}
+\begin{frame}{Super- und Subklassen}
+	Erben / Erweitern: mit \alert{\tt class subclass(superclass):} definieren
+	\begin{itemize}
+		\item neue Variablen und Methoden hinzufügen, auch alte überschreiben
+		\item Superklasse mit \alert{\tt super()} aufrufen
+	\end{itemize}
+	\lstinputlisting{resources/02_grundlagen/inheritance.py}
+\end{frame}
+\subsection{Spezielle Methoden}
+\begin{frame}{Spezielle Methoden}
+	von Python intern verwendet
+
+	\begin{description}
+		\item<1->[\tt\_\_init\_\_] Bei Instanziierung aufgerufen
+		\item<2->[\tt\_\_del\_\_] Bei Löschung aufgerufen (selten)
+		\item<3->[\tt\_\_str\_\_] Für Ausgabe als String
+		\item<4->[\tt\_\_add\_\_] Funktion für \alert{\tt +}-Operator
+		\item<5->[\tt\_\_iadd\_\_] Funktion für \alert{\tt +=}-Operator (muss self zurückgeben)
+		\item<6->[\tt\_\_sub\_\_] Funktion für \alert{\tt -}-Operator
+		\item<7->[\tt\_\_truediv\_\_] Funktion für \alert{\tt /}-Operator
+	\end{description}
+\end{frame}
+
+
+\end{document}
