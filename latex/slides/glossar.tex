@@ -25,7 +25,7 @@
 
 \subsection{Variablen}
 \begin{frame}{Variable}
-	\lstinputlisting{resources/glossar/variables.py}
+	\codewithsource{resources/glossar/variables.py}
 	\begin{itemize}
 		\item Speichern Werte, bis sie neu gesetzt werden
 		\item Variablen in einer Funktion sind nicht außerhalb sichtbar
@@ -34,7 +34,7 @@
 
 \subsection{if-elif-else}
 \begin{frame}{if-elif-else}
-	\lstinputlisting{resources/glossar/if_elif_else.py}
+	\codewithsource{resources/glossar/if_elif_else.py}
 	\begin{itemize}
 		\item \texttt{if}-Bedingung wird zuerst geprüft
 		\item Wenn die nicht gilt (\texttt{True} ist), wird das erste \texttt{elif} überprüft
@@ -45,7 +45,7 @@
 
 \subsection{\texttt{print} und \texttt{input}}
 \begin{frame}{print und input}
-	\lstinputlisting{resources/glossar/print_input.py}
+	\codewithsource{resources/glossar/print_input.py}
 	\begin{itemize}
 		\item \texttt{print} gibt alle Argumente aus
 		\item \texttt{input} gibt seinen prompt aus und wartet auf Nutzerinput
@@ -55,7 +55,7 @@
 
 \subsection{Funktionen}
 \begin{frame}{Funktionen}
-	\lstinputlisting{resources/glossar/function.py}
+	\codewithsource{resources/glossar/function.py}
 	\begin{itemize}
 		\item mit \texttt{funktion(argumente)} aufrufen
 		\item \texttt{return}-Wert kann weiter verwendet werden
@@ -74,7 +74,7 @@
 		\item[list] Liste mit irgendwelchen Elementen: \texttt{["Houlle", 1, 12]}
 		\item[dict] Zuordnung \texttt{key} $\to$ \texttt{element}: \texttt{\{1: "ja", 2:"nö"\}}
 	\end{description}
-	\lstinputlisting{resources/glossar/datatypes.py}
+	\codewithsource{resources/glossar/datatypes.py}
 \end{frame}
 
 \subsection{Operatoren}
@@ -88,7 +88,7 @@
 		\item[\tt**] Exponent: statt \^{}
 		\item[\tt==] Sind sie gleich? $\to$ bool als Ergebnis
 	\end{description}
-	\lstinputlisting{resources/glossar/operators.py}
+	\codewithsource{resources/glossar/operators.py}
 \end{frame}
 \begin{frame}{Operatoren}
 	\begin{description}
@@ -99,7 +99,7 @@
 		\item[\tt and] gelten $a$ und $b$?
 		\item[\tt or] gelten $a$ und/oder $b$?
 	\end{description}
-	\lstinputlisting{resources/glossar/operators_bool.py}
+	\codewithsource{resources/glossar/operators_bool.py}
 \end{frame}
 
 \subsection{Listen}
@@ -108,7 +108,7 @@
 		\item Mehrere Werte mit Reihenfolge
 		\item Index \texttt{0, 1, 2, ..., len(liste) - 1}
 	\end{itemize}
-	\lstinputlisting{resources/glossar/list_squares.py}
+	\codewithsource{resources/glossar/list_squares.py}
 \end{frame}
 
 \subsection{\texttt{for}-Loop und \texttt{range}}
@@ -121,7 +121,7 @@
 		\item Enden von Bereichen (hier: \texttt{stop}) werden nicht mit berechnet!
 		\item eins größer wählen als letztes Element
 	\end{itemize}
-	\lstinputlisting{resources/glossar/for_range.py}
+	\codewithsource{resources/glossar/for_range.py}
 \end{frame}
 
 \subsection{\texttt{while}-Loop}
@@ -131,7 +131,7 @@
 		\item prüft Bedingung $b$ immer wieder
 		\item führt jedes Mal, wenn $b$ gilt, $block$ aus
 	\end{itemize}
-	\lstinputlisting{resources/glossar/while.py}
+	\codewithsource{resources/glossar/while.py}
 \end{frame}
 
 \subsection{\texttt{continue} und \texttt{break}}
@@ -141,14 +141,21 @@
 		\item[]	und geht zum nächsten Durchlauf über
 		\item[\texttt{break}] Schleife bricht komplett ab
 	\end{description}
+	\codewithsource{resources/glossar/continue_break.py}
 \end{frame}
 
 \section{Intermediate}
 
 \subsection{Files}
 \begin{frame}{Files}
-	\lstinputlisting{resources/glossar/files.py}
-	\lstinputlisting{resources/glossar/files_with.py}
+	\codewithsource{resources/glossar/files.py}
+	\codewithsource{resources/glossar/files_with.py}
+\end{frame}
+
+\subsection{Exception}
+\begin{frame}{Files}
+	\codewithsource{resources/glossar/exception.py}
+	\codewithsource{resources/glossar/exception_file.py}
 \end{frame}
 
 \section{Klassen}
@@ -158,13 +165,13 @@
 		\item<1-> Klassen sind wie Schablonen
 		\item<2-> Objekte sind konkrete Instanzen
 	\end{itemize}
-	\onslide<3->\lstinputlisting{resources/02_grundlagen/class.py}
+	\onslide<3->\codewithsource{resources/02_grundlagen/class.py}
 	\onslide<3->{auf Deutsch: selbst festgelegt}
 \end{frame}
 
 \begin{frame}{Attribute}
 	Attribute setzen: meist im \textbf{Initialisierer} \alert{\tt \_\_init\_\_}
-	\lstinputlisting{resources/02_grundlagen/attributes.py}
+	\codewithsource{resources/02_grundlagen/attributes.py}
 	auf Deutsch: selbst festgelegt
 \end{frame}
 
@@ -185,7 +192,7 @@
 		\item neue Variablen und Methoden hinzufügen, auch alte überschreiben
 		\item Superklasse mit \alert{\tt super()} aufrufen
 	\end{itemize}
-	\lstinputlisting{resources/02_grundlagen/inheritance.py}
+	\codewithsource{resources/02_grundlagen/inheritance.py}
 \end{frame}
 \subsection{Spezielle Methoden}
 \begin{frame}{Spezielle Methoden}
