@@ -44,3 +44,8 @@ abbrev = {
     "tyrosine": "Tyr",
     "valine": "Val",
 }
+
+"""
+Möglicherweise wollt ihr die vorgegebenen Datenstrukturen zu eigenen umwandeln
+Z.B. wäre eine, die "GCT" -> "alanine" und "GTT" -> "valine" enthält, sinnvoll
+"""
