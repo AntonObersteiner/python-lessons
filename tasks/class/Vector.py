@@ -19,6 +19,14 @@ class Vector:
     def __repr__(self):
         return f"V({self.x}, {self.y})"
 
+    #wird verwendet, wenn irgendwo  self == other  gefragt wird
+    def __eq__(self, other):
+        return (
+            isinstance(other, Vector) and
+            self.x == other.x and
+            other.x == other.y
+        )
+
     #self + other
     def __add__(self, other):
         #other ist ein Vektor! hat .x und .y

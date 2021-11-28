@@ -9,6 +9,7 @@ class Vector:
         return f"V({self.x}, {self.y})"
     def __eq__(self, other):
         return (
+            isinstance(other, Vector) and
             self.x == other.x and
             self.y == other.y
         )
