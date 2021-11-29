@@ -140,7 +140,7 @@ def test():
 
         a.attract(b)
 
-        # check(a.vel, should_be, "attract seint nicht richtig zu funktionieren!")
+        # check(a.vel, should_be, "attract scheint nicht richtig zu funktionieren!")
 
     test_update()
     test_accel()
