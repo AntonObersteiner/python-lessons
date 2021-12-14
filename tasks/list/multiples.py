@@ -19,7 +19,7 @@ from check import check
 def test():
     print("Testing:")
 
-    check("aus [1,2,3,6,7,8,9] die Vielfachen von 3:", [1, 2, 3, 6, 7, 8, 9], [1, 2, 7, 8])
+    check("aus [1,2,3,6,7,8,9] die Vielfachen von 3:", remove_multiples([1, 2, 3, 6, 7, 8, 9], 3), [1, 2, 7, 8])
 
 if __name__ == '__main__':
     test()
