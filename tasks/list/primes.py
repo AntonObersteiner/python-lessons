@@ -7,12 +7,14 @@ Der Algorithmus wird in primes_alg.txt erklärt,
     wer selber knobeln will, kann das machen.
 """
 
+#man kann die vorher gelöste Aufgabe hier wiederverwenden
+from multiples import remove_multiples
+
 def primes(up_to = 1000):
     candidates = list(range(2, up_to + 1))
     #Tipp:
     #   n % p  ergibt den Rest  n mod p
     #   wenn n % p == 0, dann gilt: p teilt n
-
 
     return candidates
 
